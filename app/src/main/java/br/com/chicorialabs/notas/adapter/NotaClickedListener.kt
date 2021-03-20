@@ -6,6 +6,6 @@ interface NotaClickedListener {
 
     fun notaClickeItem(cursor: Cursor)
 
-    fun notaRemoveItem(cursor: Cursor)
+    fun notaRemoveItem(cursor: Cursor?)
 
 }

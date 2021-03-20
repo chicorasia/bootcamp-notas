@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Notas</string>
+    <string name="nota_hint_descricao">Descrição</string>
+    <string name="nota_hint_title">Título</string>
 </resources>

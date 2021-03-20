@@ -1,12 +1,15 @@
 package br.com.chicorialabs.notas
 
 import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
+import android.provider.BaseColumns._ID
 import androidx.appcompat.app.AppCompatActivity
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.recyclerview.widget.RecyclerView
+import br.com.chicorialabs.notas.adapter.NotaClickedListener
 import br.com.chicorialabs.notas.adapter.NotasAdapter
 import br.com.chicorialabs.notas.database.NotasDatabaseHelper.Companion.TITLE_NOTAS
 import br.com.chicorialabs.notas.database.NotesProvider.Companion.URI_NOTAS
@@ -23,7 +26,19 @@ class MainActivity : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = NotasAdapter()
+        adapter = NotasAdapter(object : NotaClickedListener {
+
+            override fun notaClickeItem(cursor: Cursor) {
+                val id = cursor.getLong(cursor.getColumnIndex(_ID))
+            }
+
+            override fun notaRemoveItem(cursor: Cursor?) {
+                val id = cursor?.getLong(cursor.getColumnIndex(_ID))
+                contentResolver.delete(Uri.withAppendedPath(URI_NOTAS, id.toString()),
+                null, null)
+            }
+
+        })
         adapter.setHasStableIds(true)
 
         recyclerView = findViewById(R.id.main_recyclerview)
