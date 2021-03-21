@@ -2,6 +2,8 @@
 
 Exercício desenvolvido no módulo Desenvolvimento Integrado de Aplicações Android
 
+Para fazer as atividades da Live use o commit `954bc5f`
+
 
 ****
 
