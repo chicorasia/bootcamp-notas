@@ -41,7 +41,7 @@ class NotasAdapter(val listener: NotaClickedListener): RecyclerView.Adapter<Nota
     override fun getItemCount(): Int = if(mCursor != null) mCursor?.count as Int else 0
 
 
-    fun setCursor(novoCursor: Cursor){
+    fun setCursor(novoCursor: Cursor?){
         mCursor = novoCursor
         notifyDataSetChanged()
     }
@@ -54,9 +54,6 @@ class NotasViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     val tituloTxt = itemView.findViewById<TextView>(R.id.card_title_txt)
     val notaTxt = itemView.findViewById<TextView>(R.id.card_descricao_txt)
     val excluirBtn = itemView.findViewById<Button>(R.id.card_excluir_btn)
-
-    fun bindDados(){
-
-    }
+    
 
 }

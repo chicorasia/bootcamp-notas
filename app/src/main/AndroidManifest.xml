@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Notas">
         <provider
             android:name=".database.NotesProvider"
-            android:authorities="br.com.chicorialabs.applicationcontentprovider.provider"
+            android:authorities="br.com.chicorialabs.notas.applicationcontentprovider.provider"
             android:enabled="true"
             android:exported="true"></provider>
 

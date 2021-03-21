@@ -118,7 +118,7 @@ class NotesProvider : ContentProvider() {
     }
 
     companion object {
-        const val AUTHORITY: String = "br.com.chicorialabs.applicationcontentprovider.provider"
+        const val AUTHORITY: String = "br.com.chicorialabs.notas.applicationcontentprovider.provider"
         val BASE_URI: Uri = Uri.parse("content://$AUTHORITY")
         val URI_NOTAS: Uri = Uri.withAppendedPath(BASE_URI, "notas")
 
